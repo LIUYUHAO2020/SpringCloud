@@ -42,7 +42,7 @@ public class PaymentController {
     @PostMapping("/payment")
     public CommentResult<Long> create(@RequestBody Payment payment) {
         Long result = paymentService.create(payment);
-        log.info("***插入的信息为" + payment);
+        log.info("Provider***插入的信息为" + payment);
         if (result > 0) {
             return new CommentResult<Long>(200, "成功", payment.getId());
         } else {
@@ -54,7 +54,7 @@ public class PaymentController {
     @GetMapping("/payment/{id}")
     public CommentResult<Payment> getPayment(@PathVariable("id") Long id) {
         Payment result = paymentService.getPayment(id);
-        log.info("***查询到的结果为" + result);
+        log.info("Provider***查询到的结果为" + result);
         if (result == null) {
             return new CommentResult<Payment>(444, "结果不存在", null);
         } else {
