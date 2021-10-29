@@ -15,6 +15,7 @@
         <module>cloud-provider-payment8001</module>
         <module>cloud-consumer-order80</module>
         <module>cloud-api-commons</module>
+        <module>cloud-eureka-server7001</module>
     </modules>
 
 <!--对项目jar包的版本进行统一管理-->
