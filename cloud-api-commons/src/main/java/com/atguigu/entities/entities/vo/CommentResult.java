@@ -1,4 +1,4 @@
-package com.atguigu.springcloud.entities.vo;
+package com.atguigu.entities.entities.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

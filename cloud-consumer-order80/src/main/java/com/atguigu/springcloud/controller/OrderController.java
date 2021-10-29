@@ -1,7 +1,7 @@
 package com.atguigu.springcloud.controller;
 
-import com.atguigu.springcloud.entities.po.Payment;
-import com.atguigu.springcloud.entities.vo.CommentResult;
+import com.atguigu.entities.entities.po.Payment;
+import com.atguigu.entities.entities.vo.CommentResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

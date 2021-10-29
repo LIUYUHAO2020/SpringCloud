@@ -1,6 +1,7 @@
 package com.atguigu.springcloud.mapper;
 
-import com.atguigu.springcloud.entities.po.Payment;
+
+import com.atguigu.entities.entities.po.Payment;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;

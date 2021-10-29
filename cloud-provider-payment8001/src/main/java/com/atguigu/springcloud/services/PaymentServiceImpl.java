@@ -1,7 +1,6 @@
 package com.atguigu.springcloud.services;
 
-import com.atguigu.springcloud.entities.po.Payment;
-import org.apache.ibatis.annotations.Select;
+import com.atguigu.entities.entities.po.Payment;
 import org.springframework.stereotype.Service;
 
 /**
