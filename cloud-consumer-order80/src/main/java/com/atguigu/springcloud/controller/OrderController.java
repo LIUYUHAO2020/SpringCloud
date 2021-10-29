@@ -29,15 +29,15 @@ import org.springframework.web.client.RestTemplate;
 @ResponseBody
 public class OrderController {
 
-    public static final String PAYMENT_PATH="http://localhost:8001";
-
+//    public static final String PAYMENT_PATH="http://localhost:8001";
+    public static final String PAYMENT_PATH="http://CLOUD-PAYMENT-SERVICE/";//根据微服务名称调用相应的微服务
     @Autowired
     private RestTemplate restTemplate;
 
     @PostMapping("/consumer")
     public CommentResult<Long> create(@RequestBody Payment payment) {
         log.info("Consumer***插入的信息为" + payment);
-        return restTemplate.postForObject(PAYMENT_PATH+"/payment",payment,CommentResult.class);
+        return restTemplate.postForObject(PAYMENT_PATH+"payment",payment,CommentResult.class);
     }
 
     @GetMapping("/consumer/{id}")
