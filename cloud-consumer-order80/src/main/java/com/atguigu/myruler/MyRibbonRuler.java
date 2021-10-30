@@ -1,7 +1,9 @@
 package com.atguigu.myruler;
 
+import com.atguigu.springcloud.RoundRuler.CustomRuler;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,6 +21,7 @@ import org.springframework.context.annotation.Configuration;
 public class MyRibbonRuler {
     @Bean
     public IRule myRuler(){
-        return new RandomRule();
+//        return new RandomRule();
+        return new CustomRuler();
     }
 }
