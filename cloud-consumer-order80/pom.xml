@@ -18,7 +18,7 @@
 
     <dependencies>
 
-        <!--添加Eureka-Client依赖-->
+        <!--添加Eureka-Client依赖 整合了Ribbon的依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
