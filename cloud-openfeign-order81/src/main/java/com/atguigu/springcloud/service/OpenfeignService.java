@@ -1,6 +1,8 @@
 package com.atguigu.springcloud.service;
 
 import com.atguigu.entities.entities.vo.CommentResult;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * 1.当有多个FeignClient时可以使用name或value属性为其定义名称
  * 2.还可以用configuration来配置FeignClient
  */
-@FeignClient("CLOUD-PAYMENT-SERVICE")
+@FeignClient(value = "CLOUD-PAYMENT-SERVICE",fallback = OpenfeignHandler.class)
 @Service
 public interface OpenfeignService{
     /**
@@ -30,4 +32,7 @@ public interface OpenfeignService{
 
     @GetMapping("/feign-timeout")
     public CommentResult feigntimeOut();
+
+
+
 }
