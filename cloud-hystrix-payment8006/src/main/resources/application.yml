@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: cloud-hystrix-payment-service
+  cloud:
+    circuitbreaker:
+      hystrix:
+        enabled: true #开启hystrix的断路器（circuitbreaker）
 
 eureka:
   client:

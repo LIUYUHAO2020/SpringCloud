@@ -28,4 +28,9 @@ public class HystrixController {
     public String error(@PathVariable("id") int id){
         return service.error(id);
     }
+
+    @GetMapping("/breaker/{id}")
+    public String breaker(@PathVariable("id") int id){
+        return service.breaker(id);
+    }
 }
