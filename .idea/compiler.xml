@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cloud-openfeign-order81" />
         <module name="cloud-provider-payment8002" />
+        <module name="cloud-hystrix-payment8006" />
         <module name="cloud-eureka-server7001" />
         <module name="cloud-api-commons" />
         <module name="cloud-provider-payment8001" />

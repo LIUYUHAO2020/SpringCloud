@@ -2,6 +2,8 @@ package com.atguigu.springcloud.controller;
 
 import com.atguigu.entities.entities.vo.CommentResult;
 import com.atguigu.springcloud.service.OpenfeignService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,9 +32,23 @@ public class OpenfeignController {
         return openfeignService.payment(id);
     }
 
+    /**
+     * HystrixCommand注解放在controller中：
+     *         使用的是openfeign为服务接口调用，service为接口无法创建处理方法
+     * @return
+     */
     @GetMapping("/feign-timeout")
+    @HystrixCommand(fallbackMethod = "errorHandler",commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="3000")
+    })
     public CommentResult feigntimeOut(){
         return openfeignService.feigntimeOut();
+    }
+
+    //降级后调用的方法的返回值与参数必须与之前方法一致
+    public CommentResult errorHandler(){
+        CommentResult result =new CommentResult(500,"超时导致，消费者降级");
+        return result;
     }
 
 }
