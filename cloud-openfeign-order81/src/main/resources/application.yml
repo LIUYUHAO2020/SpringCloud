@@ -26,3 +26,7 @@ feign:
       default:
         connectTimeout: 5000
         readTimeout: 5000
+        loggerLevel: full
+#loggerLevel可以代替配置文件设置日志详细程度
+#若两者都配置则配置文件最终生效
+logging.level.com.atguigu.springcloud.service.OpenfeignService: DEBUG

@@ -16,3 +16,17 @@ eureka:
   instance:
     instance-id: openfeign-order81  #隐藏主机名
     prefer-ip-address: true #访问路径显示ip地址
+
+#可以设置成功但没有提示，详细可见github的openfeign官方文档
+#https://github.com/spring-cloud/spring-cloud-openfeign/blob/main/docs/src/main/asciidoc/spring-cloud-openfeign.adoc
+#其中default表示所有的FeignClient均应用该设置，可以替换成相应的feign.name来为特定的FeignClient配置
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+#loggerLevel可以代替配置文件设置日志详细程度
+#若两者都配置则配置文件最终生效
+logging.level.com.atguigu.springcloud.service.OpenfeignService: DEBUG
