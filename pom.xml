@@ -20,6 +20,7 @@
         <module>cloud-provider-payment8002</module>
         <module>cloud-openfeign-order81</module>
         <module>cloud-hystrix-payment8006</module>
+        <module>cloud-hystrix-dashboard9001</module>
     </modules>
 
 <!--对项目jar包的版本进行统一管理-->
