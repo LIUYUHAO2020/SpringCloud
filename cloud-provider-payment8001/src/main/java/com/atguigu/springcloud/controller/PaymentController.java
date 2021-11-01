@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @Author wz
  * @Date 2021/10/28 18:26
@@ -64,5 +66,16 @@ public class PaymentController {
         } else {
             return new CommentResult<Payment>(200, "成功,port:"+serverPort, result);
         }
+    }
+
+    @GetMapping("/feign-timeout")
+    public CommentResult feigntimeOut(){
+        try{
+            TimeUnit.SECONDS.sleep(3);
+        }catch (Exception e){
+            log.info("时间访问超时");
+            return new CommentResult(400,"访问超时",serverPort);
+        }
+        return new CommentResult(200,"成功",serverPort);
     }
 }

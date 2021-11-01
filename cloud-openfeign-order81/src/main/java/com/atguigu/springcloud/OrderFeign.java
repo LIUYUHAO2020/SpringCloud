@@ -22,17 +22,4 @@ public class OrderFeign {
     public static void main(String[] args) {
         SpringApplication.run(OrderFeign.class,args);
     }
-
-    @FeignClient("CLOUD-PAYMENT-SERVICE")
-    @Service
-    public static interface OpenfeignService{
-        /**
-         * PathVariable不能忽略
-         *
-         * @param id:openfeign会将该参数放到路径的{id}处
-         * @return
-         */
-        @GetMapping("/payment/{id}")
-        public CommentResult payment(@PathVariable("id") Long id);
-    }
 }
