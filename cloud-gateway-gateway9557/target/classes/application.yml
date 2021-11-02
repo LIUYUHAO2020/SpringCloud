@@ -19,11 +19,24 @@ spring:
     gateway:
       routes:
         - id: payment_route
-          uri: http://localhost:8001
+          #uri: http://localhost:8001
+          uri: lb://cloud-payment-service #lb://service-name的固定格式
           predicates:
             - Path=/payment/**
-
+#After:时间以后生效
+#Before：时间以前
+#Between：时间之间
+#Path：访问路径以前
+#Cookie：（cookiename，正则表达式）
+#Header：（属性名，正则表达式）
+#Method：请求方式
+#Host:（正则表达式）资源地址符合某种格式
+#Query：（属性名，正则表达式）payment?username=1
         - id: payment_route2
-          uri: http://localhost:8001
+          uri: lb://cloud-payment-service
           predicates:
               - Path=/feign-timeout
+      #开启网关的发现服务功能，让网关可以从注册中心获得服务名称对应的服务地址
+      discovery:
+        locator:
+          enabled: true
