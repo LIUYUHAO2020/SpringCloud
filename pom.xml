@@ -21,6 +21,7 @@
         <module>cloud-openfeign-order81</module>
         <module>cloud-hystrix-payment8006</module>
         <module>cloud-hystrix-dashboard9001</module>
+        <module>cloud-gateway-gateway9557</module>
     </modules>
 
 <!--对项目jar包的版本进行统一管理-->
